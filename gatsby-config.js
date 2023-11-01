@@ -15,6 +15,10 @@ module.exports = {
         apiKey: 'AIzaSyBxIvXPj6cbkqMXTK0gDV9MSS5VdgVKoO4',
         blogId: '1626104544365850862'
         }
-    }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {},
+    },
   ],
 }

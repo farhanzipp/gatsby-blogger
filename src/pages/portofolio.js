@@ -1,13 +1,13 @@
 import * as React from "react"
 import PageLayout from "../components/PageLayout"
 
-const Home = () => {
+const Portofolio = () => {
   return (
     <PageLayout> 
-      <h1>Home</h1>
+      <h1>Portofolio</h1>
     </PageLayout>
   )
 }
 
-export default Home
+export default Portofolio
 
