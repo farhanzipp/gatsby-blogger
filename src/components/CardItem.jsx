@@ -1,12 +1,14 @@
 import React from 'react'
-import CardItemImage from './CardItemImage'
-import CardItemBody from './CardItemBody'
 
 const CardItem = ({ imageUrl, title, label, excerpt,  author, published }) => {
   return (
     <div>
-        <CardItemImage imageUrl={imageUrl} title={title} />
-        <CardItemBody label={label} title={title} excerpt={excerpt} author={author} published={published} />
+        <img src={imageUrl} alt={title} />
+        <p>{label}</p>
+        <h3>{title}</h3>
+        <p>{excerpt}</p>
+        <h4>{author}</h4>
+        <p>{published}</p>
     </div>
   )
 }

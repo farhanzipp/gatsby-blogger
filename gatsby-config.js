@@ -8,6 +8,18 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: `farhanzippu`,
+    author: {
+      name: `Farhan Aji`,
+      summary: `a person who love build fancy techy stuff.`,
+    },
+    description: `Farhan's portofolio website.`,
+    siteUrl: `https://farhanzip.netlify.app/`,
+    social: {
+      twitter: `farhanzip`,
+    },
+  },
   plugins: [
     {
       resolve: 'gatsby-source-blogger',
