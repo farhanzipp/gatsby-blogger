@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `farhanzippu`,
+    title: `farhanz`,
     author: {
       name: `Farhan Aji`,
       summary: `a person who love build fancy techy stuff.`,
@@ -28,9 +28,7 @@ module.exports = {
         blogId: '1626104544365850862'
         }
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {},
-    },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-postcss',
   ],
 }
