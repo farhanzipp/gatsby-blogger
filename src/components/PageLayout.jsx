@@ -19,7 +19,7 @@ const PageLayout = ({children}) => {
   return (
     <div>
         <Navbar title={siteTitle} />
-        <main className='container pt-16 mx-auto '>
+        <main className='container pt-16 mx-auto min-h-screen '>
             {children}
         </main>
         <Footer title={siteTitle} />
