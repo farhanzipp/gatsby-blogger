@@ -10,7 +10,7 @@ const Blog = ({ data }) => {
     <PageLayout> 
       <h1 className="text-3xl font-bold dark:text-gray-200">Blogs</h1>
       <div className="w-full h-60 my-3 rounded-xl bg-purple-500"></div>
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post)=> {
           const imageUrl = post.frontmatter.featuredImageUrl;
           const title = post.frontmatter.title;

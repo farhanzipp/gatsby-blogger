@@ -2,12 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@500&family=Pixelify+Sans:wght@700&display=swap');
 
 .nav__title {
-    font-family: "VT323", monospace;
+    font-family: "Pixelify Sans", monospace;
+    font-size: 1.2rem;
 }
 
 .active {
     color: rgb(2 132 199) !important;
+}
+
+/* Blog Post CSS Styling */
+.blog-title {
+    font-family: "Lato", sans-serif;
+}
+
+.blog-post {
+    overflow-x: hidden;
+}
+
+.blog-post img {
+    height: 11rem;
+    object-fit: cover;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.blog-post h2 {
+    font-size: 1.2rem ;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+    padding: 2rem 0 0.5rem 0;
+}
+
+.blog-post code {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    overflow-x: scroll;
+    padding: 1rem;
+    color: wheat;
+    background-color: #333;
+}
+
+@media only screen and (min-width: 768px) {
+    .blog-post img {
+        height: 20rem;
+    }
+  }
+
+@media (prefers-color-scheme: dark ) {
+    article {
+        color:aliceblue;
+    }
 }
