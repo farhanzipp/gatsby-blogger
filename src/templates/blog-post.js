@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import PageLayout from "../components/PageLayout";
 
 
+
 const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
   return (
