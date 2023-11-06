@@ -1,16 +1,26 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PageLayout from "../components/PageLayout";
+import Seo from "../components/Seo";
+import Breadcrumb from "../components/Breadcrumb";
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data}) => {
   const post = data.markdownRemark;
   const author = data.site.siteMetadata.author.name;
   const authorImg = data.bloggerPost.author.image.url;
   const published = post.frontmatter.date;
   const readTime = post.timeToRead;
+  const slug = post.frontmatter.slug;
+
+  const crumbs = [
+    { path: '/', label: 'Home' },
+    { path: '/blog', label: 'Blog' },
+    { path: `/blog/${slug}`, label: `${slug}`  },
+  ]
   return (
     <PageLayout>
       <div className="container mx-auto p-5">
+        <Breadcrumb crumbs={crumbs}/>
         <article>
             <h1 className="text-3xl font-bold blog-title">{post.frontmatter.title}</h1>
             <div className="flex py-2">
@@ -29,6 +39,15 @@ const BlogPost = ({ data }) => {
 
 export default BlogPost;
 
+export const Head = ({ data: { markdownRemark: post } }) => {
+  return (
+    <Seo
+      title={post.frontmatter.title}
+      description={post.frontmatter.description || post.excerpt}
+    />
+  )
+}
+
 export const query = graphql`
   query blogPostTemplate($slug: String!) {
     markdownRemark(frontmatter: {slug: {eq: $slug}}) {
@@ -37,6 +56,7 @@ export const query = graphql`
         title
         featuredImageUrl
         date(formatString: "MMM DD")
+        slug
       }
       timeToRead
     }

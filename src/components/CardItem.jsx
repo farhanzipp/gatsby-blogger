@@ -7,7 +7,7 @@ const CardItem = ({ imageUrl, title, label, excerpt,  author, published }) => {
         <img src={imageUrl} alt={title} className='h-40 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100' />
         <div className='p-4'>
           <span className='p-1 text-xs text-white bg-sky-600'>{label[0]}</span>
-          <h1 className='h-20 pt-1 pb-2 title-font text-lg md:pb-0 md:text-sm font-bold text-gray-800'>{title}</h1>
+          <h1 className='h-20 pt-1 title-font text-lg md:pb-0 md:text-sm font-bold text-gray-800'>{title}</h1>
           <p className='text-sm'>{excerpt}</p>
           <div className='flex justify-between pt-2'>
             <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>By {author}</h2>
