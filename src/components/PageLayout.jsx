@@ -17,7 +17,7 @@ const PageLayout = ({children}) => {
   const siteTitle = siteData.site.siteMetadata.title
 
   return (
-    <div>
+    <div className='dark:bg-slate-800'>
         <Navbar title={siteTitle} />
         <main className='pt-16 pb-3 px-5 md:px-32 xl:px-52 2xl:w-2/3 mx-auto min-h-screen dark:bg-slate-800'>
             {children}
