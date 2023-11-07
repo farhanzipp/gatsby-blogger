@@ -6,7 +6,6 @@
 
 .nav__title {
     font-family: "Pixelify Sans", monospace;
-    font-size: 1.2rem;
 }
 
 .active {
@@ -31,6 +30,13 @@
 
 .blog-post h2 {
     font-size: 1.2rem ;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+    padding: 2rem 0 0.5rem 0;
+}
+
+.blog-post h3 {
+    font-size: 1rem ;
     font-weight: 700;
     font-family: "Lato", sans-serif;
     padding: 2rem 0 0.5rem 0;

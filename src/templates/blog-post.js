@@ -4,7 +4,7 @@ import PageLayout from "../components/PageLayout";
 import Seo from "../components/Seo";
 import Breadcrumb from "../components/Breadcrumb";
 
-const BlogPost = ({ data}) => {
+const BlogPost = ({ data, location }) => {
   const post = data.markdownRemark;
   const author = data.site.siteMetadata.author.name;
   const authorImg = data.bloggerPost.author.image.url;
@@ -12,11 +12,24 @@ const BlogPost = ({ data}) => {
   const readTime = post.timeToRead;
   const slug = post.frontmatter.slug;
 
-  const crumbs = [
-    { path: '/', label: 'Home' },
-    { path: '/blog', label: 'Blog' },
-    { path: `/blog/${slug}`, label: `${slug}`  },
-  ]
+  const { fromPortfolioPage } = location.state || {};
+  let crumbs;
+
+  if (fromPortfolioPage) {
+    crumbs = [
+      { path: '/', label: 'Home' },
+      { path: '/portfolio', label: 'Portfolio' },
+      { path: `/portfolio/${slug}`, label: `${slug}`  },
+    ]
+  } else {
+    crumbs = [
+      { path: '/', label: 'Home' },
+      { path: '/blog', label: 'Blog' },
+      { path: `/blog/${slug}`, label: `${slug}`  },
+    ]
+  }
+
+
   return (
     <PageLayout>
       <div className="container mx-auto p-5">

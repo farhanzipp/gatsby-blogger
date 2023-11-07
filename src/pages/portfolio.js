@@ -14,7 +14,7 @@ const Portfolio = ({ data }) => {
 
   return (
     <PageLayout> 
-      <h1 className="text-3xl font-bold dark:text-gray-200">Portfolio</h1>
+      <h1 className="text-3xl font-bold mb-3 dark:text-gray-200">Portfolio</h1>
       
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {portfolioPosts.map((post)=> {
@@ -27,7 +27,7 @@ const Portfolio = ({ data }) => {
           const published = post.frontmatter.date;
           return (
             <li key={slug}>
-              <Link to={`/${slug}`}>
+              <Link to={`/${slug}`} state={{ fromPortfolioPage: true}}>
                 <CardItem
                   imageUrl={imageUrl}
                   title={title}

@@ -14,14 +14,14 @@ const Blog = ({ data }) => {
 
   return (
     <PageLayout> 
-      <h1 className="text-3xl font-bold dark:text-gray-200">Blogs</h1>
-      <div className="flex gap-8 w-full min-h-60 my-3 rounded-xl bg-gradient-to-b from-red-500 via-white to-green-500">
-        <img className="h-auto max-w-full object-cover rounded-xl" src="https://images.pexels.com/photos/3429784/pexels-photo-3429784.jpeg?auto=compress&cs=tinysrgb&w=400" alt="love palestine" />
-        <div className="p-5">
-          <h1 className="text-xl font-bold">Never Give Up</h1>
+      <h1 className="text-3xl font-bold mb-3 dark:text-gray-200">Blogs</h1>
+      <div className="flex flex-wrap gap-8 mb-5 w-full h-60 rounded-xl bg-gradient-to-b from-red-500 via-white to-green-500">
+        <img className="w-full object-cover rounded-xl sm:h-56" src="https://images.pexels.com/photos/3429784/pexels-photo-3429784.jpeg?auto=compress&cs=tinysrgb&w=400" alt="love palestine" />
+        <div className="p-5 w-full relative -top-48  z-10">
+          <h1 className="text-3xl font-bold text-center">Never Give Up!</h1>
         </div>
       </div>
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-4 mt-3 sm:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post)=> {
           const imageUrl = post.frontmatter.featuredImageUrl;
           const title = post.frontmatter.title;

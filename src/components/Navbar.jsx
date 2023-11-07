@@ -9,7 +9,7 @@ const Navbar = ({ title }) => {
 
   return (
     <nav className='fixed z-50 top-0 left-0 w-full bg-white border-gray-200 dark:bg-gray-900 shadow-md'>
-      <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
+      <div className='flex flex-wrap w-full xl:w-2/3 items-center justify-between mx-auto px-4 py-2'>
           <Link to='/' className='flex items-center'>
               <span className='nav__title text-3xl self-center font-semibold whitespace-nowrap dark:text-white'>{title}</span>
           </Link>
