@@ -1,19 +1,21 @@
+import { Link } from 'gatsby'
 import React from 'react'
 
-const FeaturedProjectCard = () => {
-    const imgUrl = 'https://picsum.photos/200/300';
+const FeaturedProjectCard = ( { title, excerpt, imageUrl, label, slug, github, siteUrl }) => {
  
   return (
-    <div className='relative h-42 rounded-lg bg-white bg-cover shadow-lg dark:bg-neutral-700'>
-        <div className='absolute w-full h-full rounded-lg brightness-50' style={{backgroundImage: `url(${imgUrl})`}}></div>
-        <div className='p-6 z-10 text-white' style={{backdropFilter: 'brightness(0.9)'}}>
+    <div className='relative h-full rounded-lg bg-white bg-cover shadow-lg dark:bg-neutral-700'>
+        <div className='absolute w-full h-full rounded-lg brightness-50' style={{backgroundImage: `url(${imageUrl})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}></div>
+        <div className='min-h-42 p-6 z-10 text-white' style={{backdropFilter: 'brightness(1)'}}>
             <p className='text-sm font-mono'>Featured Project</p>
-            <h3 className='mb-7 text-lg font-bold'>Project Title</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sapiente pariatur officia ad repellat possimus aspernatur id ducimus voluptatem esse.</p>
-            <div className='text-xs py-5 font-semibold'>label1 label2 label3</div>
+            <Link to={slug} state={{ fromPortfolioPage: true}}>
+              <h3 className='mb-7 text-lg font-bold hover:text-sky-600 transition-all'>{title}</h3>
+            </Link>
+            <p>{excerpt}</p>
+            <div className='text-xs py-5 font-semibold'>{label}</div>
             <div className='flex gap-5'>
-                <a href='www.google.com'>Github</a>
-                <a href="www.google.com">Visit</a>
+                <a href='www.google.com'>{github}</a>
+                <a href="www.google.com">{siteUrl}</a>
             </div>
         </div>
     </div>
