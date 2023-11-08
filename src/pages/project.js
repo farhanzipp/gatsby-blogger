@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby";
 import CardItem from "../components/CardItem";
 import Seo from "../components/Seo";
 
-const Portfolio = ({ data }) => {
+const Project = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes;
   const labels = data.allBloggerPost.nodes;
 
@@ -46,7 +46,7 @@ const Portfolio = ({ data }) => {
   )
 }
 
-export default Portfolio;
+export default Project;
 
 export const Head = () => <Seo title="My Portofolio" />
 
