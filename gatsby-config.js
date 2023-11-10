@@ -28,6 +28,18 @@ module.exports = {
         blogId: '1626104544365850862'
         }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Farhan's website`,
+        short_name: `Farhanzip`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `src/images/favicon.PNG`,
+      },
+    },
     'gatsby-transformer-remark',
     'gatsby-plugin-postcss',
   ],
