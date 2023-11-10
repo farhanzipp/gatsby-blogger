@@ -10,25 +10,31 @@ const Home = ({data}) => {
   const bloggerPosts = data.allBloggerPost.nodes;
 
   const featuredProjects= markdownPosts.filter(post => {
-    return bloggerPosts.some(bloggerPosts => bloggerPosts.slug === post.frontmatter.slug && bloggerPosts.labels.includes("featured"));
+    return bloggerPosts.some(bloggerPosts => 
+      bloggerPosts.slug === post.frontmatter.slug && 
+      bloggerPosts.labels.includes("featured"));
   });
 
   const featuredBlogs= markdownPosts.filter(post => {
-    return !bloggerPosts.some(bloggerPosts => bloggerPosts.slug === post.frontmatter.slug && bloggerPosts.labels.includes("portfolio"));
+    return bloggerPosts.some(bloggerPosts => 
+      bloggerPosts.slug === post.frontmatter.slug && 
+      !bloggerPosts.labels.includes("page") &&
+      !bloggerPosts.labels.includes("project") 
+      );
   });
 
   const firstThreeBlogs = featuredBlogs.slice(0, 3);
 
   return (
     <PageLayout> 
-      <section className="mb-32">
+      <section className=" mb-32 md:mb-40">
         <div className=" pt-32 pt dark:text-white ">
           <h2 className=" text-7xl font-mono">Farhan Aji<span className="text-sm  dark:text-gray-400">(he/him)</span></h2>
           <p className="pt-11 text-2xl dark:text-gray-400"> I am regular human being focusing on frontend web development and love build cool things for better life <span className="italic">(or whatever)</span></p>
         </div>
       </section>
       <section className=" mb-16">
-        <h2 className="font-mono text-2xl font-bold dark:text-white">About</h2>
+        <h2 className="font-mono text-2xl font-bold dark:text-white mb-7">About</h2>
         <div className="text-xl dark:text-gray-400">
           <p className="py-2">My first journey as frontend developer started when <span className="font-semibold dark:text-white">"having my own blogger theme style"</span> idea appear on my head 2019 ago. </p>
           <p className="py-2">And now I am confident to help people bring their ideas into life with my knowledges and experiences. </p>
@@ -44,7 +50,7 @@ const Home = ({data}) => {
         </div>
       </section>
       <section className=" mb-16">
-        <h2 className="font-mono text-2xl font-bold mb-5 dark:text-white">Projects</h2>
+        <h2 className="font-mono text-2xl font-bold mb-7 dark:text-white">Projects</h2>
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featuredProjects.map((post)=> {
               const imageUrl = post.frontmatter.featuredImageUrl;
@@ -67,12 +73,12 @@ const Home = ({data}) => {
         </ul>
         <div className="flex justify-center mt-6 w-full">
           <Link to="/project">
-            <button className="p-2 border-sky-700 border-4 rounded-md hover:bg-sky-700 hover:text-white font-semibold transition">See More Projects</button>
+            <button className="p-2 border-sky-700 dark:text-white border-4 rounded-md hover:bg-sky-700 hover:text-white font-semibold transition">See More Projects</button>
           </Link>
         </div>
       </section>
-      <section>
-        <h2 className="font-mono text-2xl font-bold mb-5 dark:text-white">Blogs</h2>
+      <section className=" mb-16">
+        <h2 className="font-mono text-2xl font-bold mb-7 dark:text-white">Blogs</h2>
         <ul className="flex flex-col gap-4 md:w-3/4 mx-auto">
             {firstThreeBlogs.map((post)=> {
               const imageUrl = post.frontmatter.featuredImageUrl;
@@ -95,7 +101,7 @@ const Home = ({data}) => {
         </ul>
         <div className="flex justify-center mt-6 w-full">
           <Link to="/blog">
-            <button className="p-2 border-sky-700 border-4 rounded-md hover:bg-sky-700 hover:text-white font-semibold transition">See More Articles</button>
+            <button className="p-2 border-sky-700 dark:text-white border-4 rounded-md hover:bg-sky-700 hover:text-white font-semibold transition">See More Articles</button>
           </Link>
         </div>
       </section>
@@ -121,7 +127,6 @@ export const blogsQuery = graphql`
         frontmatter {
           slug
           title
-          date(fromNow: true)
           featuredImageUrl
         }
       }

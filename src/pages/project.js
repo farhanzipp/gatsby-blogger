@@ -49,12 +49,12 @@ const Project = ({ data }) => {
 
 export default Project;
 
-export const Head = () => <Seo title="My Portofolio" />
+export const Head = () => <Seo title="My Projects" />
 
 
 export const blogsQuery = graphql`
   query {
-    allBloggerPost(filter: {labels: {eq: "portfolio"}}) {
+    allBloggerPost(filter: {labels: {eq: "project"}}) {
       nodes {
         labels
         slug

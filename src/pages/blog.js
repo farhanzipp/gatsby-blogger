@@ -59,7 +59,7 @@ const Blog = ({ data }) => {
           const title = post.frontmatter.title;
           const slug = post.frontmatter.slug;
           return (
-            <li key={slug}>
+            <li key={slug} className="py-2">
               <Link to={`/${slug}`}>
                 <CardItemSmall
                   title={title}
@@ -82,7 +82,7 @@ export const Head = () => <Seo title="All Blogs" />
 
 export const blogsQuery = graphql`
   query {
-    allBloggerPost(filter: {labels: {ne: "portfolio"}}, sort: {published: DESC}) {
+    allBloggerPost(filter: {labels: {nin:  ["project", "page"]}}, sort: {published: DESC}) {
       nodes {
         labels
         slug

@@ -18,8 +18,8 @@ const BlogPost = ({ data, location }) => {
   if (fromPortfolioPage) {
     crumbs = [
       { path: '/', label: 'Home' },
-      { path: '/portfolio', label: 'Portfolio' },
-      { path: `/portfolio/${slug}`, label: `${slug}`  },
+      { path: '/project', label: 'Projects' },
+      { path: `/project/${slug}`, label: `${slug}`  },
     ]
   } else {
     crumbs = [
