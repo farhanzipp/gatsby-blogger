@@ -73,7 +73,7 @@ const Home = ({data}) => {
       </section>
       <section>
         <h2 className="font-mono text-2xl font-bold mb-5 dark:text-white">Blogs</h2>
-        <ul className="flex flex-col gap-4 w-3/4 mx-auto">
+        <ul className="flex flex-col gap-4 md:w-3/4 mx-auto">
             {firstThreeBlogs.map((post)=> {
               const imageUrl = post.frontmatter.featuredImageUrl;
               const title = post.frontmatter.title;
