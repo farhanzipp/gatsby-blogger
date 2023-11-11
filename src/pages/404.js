@@ -1,12 +1,13 @@
-import React from 'react'
-import PageLayout from '../components/PageLayout'
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import PageLayout from '../components/PageLayout';
 
-const PageNotFound = () => {
+function PageNotFound() {
   return (
     <PageLayout>
-        <div>PageNotFound</div>
+      <div>PageNotFound</div>
     </PageLayout>
-  )
+  );
 }
 
-export default PageNotFound
+export default PageNotFound;

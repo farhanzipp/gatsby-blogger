@@ -1,23 +1,23 @@
-import { Link } from 'gatsby'
-import React from 'react'
+import { Link } from 'gatsby';
+import React from 'react';
 
-const Breadcrumb = ({ crumbs }) => {
+function Breadcrumb({ crumbs }) {
   return (
-    <nav className='mb-5'>
-        <ul className='inline-flex text-xs text-stone-400 dark:text-stone-200 italic'>
-            {crumbs.map((crumb, index) => (
-            <li key={index}>
-                {index === crumbs.length - 1 ? (
-                <span>{crumb.label}</span>
-                ) : (
-                <Link to={crumb.path}>{crumb.label}</Link>
-                )}
-                {index < crumbs.length - 1 && ' > '}
-            </li>
-            ))}
-        </ul>
+    <nav className="mb-5">
+      <ul className="inline-flex text-xs text-stone-400 dark:text-stone-200 italic">
+        {crumbs.map((crumb, index) => (
+          <li key={index}>
+            {index === crumbs.length - 1 ? (
+              <span>{crumb.label}</span>
+            ) : (
+              <Link to={crumb.path}>{crumb.label}</Link>
+            )}
+            {index < crumbs.length - 1 && ' > '}
+          </li>
+        ))}
+      </ul>
     </nav>
-  )
+  );
 }
 
-export default Breadcrumb
+export default Breadcrumb;
