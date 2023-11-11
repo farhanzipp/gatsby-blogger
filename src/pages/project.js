@@ -26,7 +26,7 @@ function Project({ data }) {
                 <CardItem
                   image={image}
                   title={title}
-                  label={label ? label.labels : []}
+                  label={label}
                   excerpt={excerpt}
                   author={author}
                   published={published}

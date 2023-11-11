@@ -9,8 +9,6 @@ import CardItemSmall from '../components/CardItemSmall';
 
 function Blog({ data }) {
   const posts = data.allBloggerPost.nodes;
-  const firstThreeBlogs = posts.slice(0, 3);
-  const anotherBlogs = posts.slice(3);
 
   return (
     <PageLayout>
@@ -22,20 +20,19 @@ function Blog({ data }) {
         </div>
       </div>
       <ul className="grid grid-cols-1 gap-4 mt-3 sm:grid-cols-2 lg:grid-cols-3">
-        {firstThreeBlogs.map((post) => {
+        {posts.slice(0, 3).map((post) => {
           const image = getImage(post.featuredImage);
           const { title, slug, published } = post;
           const { excerpt } = post.childMarkdownRemark;
           const author = data.site.siteMetadata.author.name;
           const label = post.labels;
-
           return (
             <li key={slug}>
               <Link to={`/${slug}`}>
                 <CardItem
                   image={image}
                   title={title}
-                  label={label ? label.labels : []}
+                  label={label}
                   excerpt={excerpt}
                   author={author}
                   published={published}
@@ -46,7 +43,7 @@ function Blog({ data }) {
         })}
       </ul>
       <ul className="pt-5">
-        {anotherBlogs.map((post) => {
+        {posts.slice(3).map((post) => {
           const image = getImage(post.featuredImage);
           const { title, slug } = post;
           const { excerpt } = post.childMarkdownRemark;
