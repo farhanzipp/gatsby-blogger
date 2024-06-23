@@ -17,9 +17,9 @@ function PageLayout({ children }) {
   const siteTitle = siteData.site.siteMetadata.title;
 
   return (
-    <div className="dark:bg-slate-800">
+    <div className='bg-secondary'>
       <Navbar title={siteTitle} />
-      <main className="pt-16 pb-3 px-5 md:px-32 xl:px-52 2xl:w-2/3 mx-auto min-h-screen dark:bg-slate-800">
+      <main className="pt-14">
         {children}
       </main>
       <Footer title={siteTitle} />

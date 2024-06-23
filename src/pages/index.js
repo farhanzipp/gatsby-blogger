@@ -6,6 +6,9 @@ import PageLayout from '../components/PageLayout';
 import FeaturedProjectCard from '../components/FeaturedProjectCard';
 import CardItemSmall from '../components/CardItemSmall';
 import Seo from '../components/Seo';
+import Hero from '../components/Hero';
+import Technologies from '../components/Technologies';
+
 
 function Home({ data }) {
   const posts = data.allBloggerPost.nodes;
@@ -21,19 +24,9 @@ function Home({ data }) {
 
   return (
     <PageLayout>
-      <section className=" mb-32 md:mb-40">
-        <div className=" pt-32 pt dark:text-white ">
-          <h2 className=" text-7xl font-mono">
-            Farhan Aji
-            <span className="text-sm  dark:text-gray-400">(he/him)</span>
-          </h2>
-          <p className="pt-11 text-2xl dark:text-gray-400">
-            I am regular human being focusing on frontend web development
-            and love build cool things for better life
-            <span className="italic"> (or whatever)</span>
-          </p>
-        </div>
-      </section>
+      <div className='mt-24'>
+      <Hero />
+      <Technologies />
       <section className=" mb-16">
         <h2 className="font-mono text-2xl font-bold dark:text-white mb-7">About</h2>
         <div className="text-xl dark:text-gray-400">
@@ -108,6 +101,7 @@ function Home({ data }) {
           </Link>
         </div>
       </section>
+      </div>
     </PageLayout>
   );
 }

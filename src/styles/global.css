@@ -3,14 +3,9 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@500&family=Pixelify+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 
-.nav__title {
-    font-family: "Pixelify Sans", monospace;
-}
-
-.active {
-    color: rgb(2 132 199) !important;
-}
 
 /* Blog Post CSS Styling */
 .blog-title {
