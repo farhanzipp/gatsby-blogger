@@ -1,6 +1,8 @@
 import React from 'react'
 import WEBSITE from '../images/website.svg'
 import TechnologiesMarquee from './TechnologiesMarquee'
+import InfinityMarquee from './InfinityMarquee'
+import { RiReactjsFill, RiTailwindCssFill } from 'react-icons/ri'
 
 function Technologies() {
   return (
@@ -8,7 +10,8 @@ function Technologies() {
         <h2 className='text-5xl font-bricolage font-bold text-center'>What I Can Do?</h2>
         <p className='text-lg'>I can build clean and responsive website with various technologies</p>
         <img src={WEBSITE} alt="website image" className='mx-auto md:right-0 w-3/4 md:w-2/4 lg:h-1/4 xl:w-1/4 bg-white rounded-full' />
-        <TechnologiesMarquee />
+       
+        <InfinityMarquee />
     </div>
   )
 }
