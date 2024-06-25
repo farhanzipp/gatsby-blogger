@@ -1,13 +1,12 @@
 /* eslint-disable react/jsx-filename-extension */
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
+import { graphql } from 'gatsby';
 import PageLayout from '../components/PageLayout';
-import CardItemSmall from '../components/CardItemSmall';
 import Seo from '../components/Seo';
 import Hero from '../components/Hero';
 import Technologies from '../components/Technologies';
 import Projects from '../components/Projects';
+import Blogs from '../components/Blogs';
 
 function Home({ data }) {
   const posts = data.allBloggerPost.nodes;
@@ -27,34 +26,7 @@ function Home({ data }) {
         <Hero />
         <Technologies />
         <Projects featProjects={featProjects} />
-
-        <section className=" mb-16">
-          <h2 className="font-mono text-2xl font-bold mb-7 dark:text-white">Blogs</h2>
-          <ul className="flex flex-col gap-4 md:w-3/4 mx-auto">
-            {blogProjects.slice(0, 3).map((post) => {
-              const image = getImage(post.featuredImage);
-              const { title, slug } = post;
-              const { excerpt } = post.childMarkdownRemark;
-              return (
-                <li key={slug}>
-                  <Link to={slug}>
-                    <CardItemSmall
-                      image={image}
-                      title={title}
-                      excerpt={excerpt}
-                      slug={slug}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="flex justify-center mt-6 w-full">
-            <Link to="/blog">
-              <button type="button" className="p-2 border-sky-700 dark:text-white border-4 rounded-md hover:bg-sky-700 hover:text-white font-semibold transition">See More Articles</button>
-            </Link>
-          </div>
-        </section>
+        <Blogs blogProjects={blogProjects} />
       </div>
     </PageLayout>
   );

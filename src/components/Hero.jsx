@@ -19,7 +19,7 @@ function Hero() {
           to make live easier.
         </p>
         <div className="w-fit bg-black rounded-full mt-8 mx-auto md:mx-0">
-          <button className="py-3 px-5 rounded-full -translate-x-1 -translate-y-1 border-2 border-black bg-primary font-works font-semibold hover:-translate-x-2 hover:-translate-y-2 duration-150">Download CV</button>
+          <button type="button" className="py-3 px-5 rounded-full -translate-x-1 -translate-y-1 border-2 border-black bg-primary font-works font-semibold hover:-translate-x-2 hover:-translate-y-2 duration-150">Download CV</button>
         </div>
       </div>
       <img src={PROFILE} alt="profile" className="mx-auto md:right-0 w-3/4 md:w-2/4 lg:h-1/4 xl:w-1/4 bg-white rounded-full" />

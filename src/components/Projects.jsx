@@ -6,7 +6,7 @@ function Projects({ featProjects }) {
     <div className="w-full py-14 bg-white">
       <h2 className="mb-10 text:4xl md:text-5xl font-works font-semibold text-center">Featured Projects</h2>
       <ul>
-        {featProjects.map((post) => {
+        {featProjects.map((post, index) => {
           const imageUrl = post.childMarkdownRemark.frontmatter.featuredImageUrl;
           const { title, slug } = post;
           const { excerpt } = post.childMarkdownRemark;
@@ -19,6 +19,7 @@ function Projects({ featProjects }) {
                 label={label}
                 excerpt={excerpt}
                 slug={slug}
+                index={index}
               />
             </li>
           );

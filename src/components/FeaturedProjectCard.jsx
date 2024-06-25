@@ -15,12 +15,12 @@ function getRandomColor() {
 }
 
 function FeaturedProjectCard({
-  title, excerpt, imageUrl, label, slug,
+  title, excerpt, imageUrl, label, slug, index,
 }) {
   return (
     <Link to={slug} state={{ fromPortfolioPage: true }}>
-      <div className="w-full h-[60vh] flex flex-col md:flex-row flex-1 bg-secondary">
-        <img className="object-cover h-full md:w-1/2 hover:brightness-50" src={imageUrl} alt={title} />
+      <div className={`w-full gap-5 md:h-[60vh] flex flex-col md:flex-row flex-1 bg-secondary ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+        <img className="object-cover h-full md:w-1/2 hover:brightness-50 duration-150" src={imageUrl} alt={title} />
         <div className="h-full p-14 flex flex-col">
           <div className="flex gap-2 font-semibold ">
             {label.map((item) => (
