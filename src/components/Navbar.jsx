@@ -8,10 +8,10 @@ function Navbar({ title }) {
   };
 
   const menus = [
-    {title : "Home", link : "/"},
-    {title : "Projects", link : "/project"},
-    {title : "Blogs", link : "/blog"},
-  ]
+    { id: 1, title: 'Home', link: '/' },
+    { id: 2, title: 'Projects', link: '/project' },
+    { id: 3, title: 'Blogs', link: '/blog' },
+  ];
 
   return (
     <header className="fixed z-50 top-0 left-0 w-full">
@@ -24,12 +24,12 @@ function Navbar({ title }) {
 
         <nav className={`absolute w-full left-0 top-14 md:w-fit md:top-0 md:relative md:block ${isMenuOpen ? '' : 'hidden'}`} id="navbar-default">
           <ul className="flex flex-col gap-4 p-4 md:p-0 border rounded-lg font-medium border-gray-100  bg-gray-50 md:flex-row md:border-0 md:bg-transparent">
-            {menus.map((menu, index) => (
-              <li key={index}>
+            {menus.map((menu) => (
+              <li key={menu.id}>
                 <Link
                   to={menu.link}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 hover:text-accentred md:p-0 "
-                  activeClassName="text-accentred"
+                  activeClassName="active"
                 >
                   {menu.title}
                 </Link>

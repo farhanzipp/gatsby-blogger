@@ -1,25 +1,42 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
+const bgColors = [
+  'bg-accentred',
+  'bg-blue-400',
+  'bg-green-400',
+  'bg-yellow-400',
+  'bg-purple-400',
+];
+
+function getRandomColor() {
+  const randomIndex = Math.floor(Math.random() * bgColors.length);
+  return bgColors[randomIndex];
+}
+
 function FeaturedProjectCard({
   title, excerpt, imageUrl, label, slug,
 }) {
   return (
-    <div className="relative h-full rounded-lg bg-white bg-cover shadow-lg dark:bg-neutral-700">
-      <div className="absolute w-full h-full rounded-lg brightness-50" style={{ backgroundImage: `url(${imageUrl})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
-      <div className="h-42 p-6 z-10 text-white" style={{ backdropFilter: 'brightness(1)' }}>
-        <p className="text-sm font-mono text-gray-400">Featured Project</p>
-        <Link to={slug} state={{ fromPortfolioPage: true }}>
-          <h3 className="mb-7 text-lg font-bold hover:text-sky-600 transition-all">{title}</h3>
-        </Link>
-        <p>{excerpt}</p>
-        <div className="text-xs py-5 font-semibold">
-          {label.map((item) => (
-            <span key={item} className="text-red-400 pr-2">{item}</span>
-          ))}
+    <Link to={slug} state={{ fromPortfolioPage: true }}>
+      <div className="w-full h-[60vh] flex flex-col md:flex-row flex-1 bg-secondary">
+        <img className="object-cover h-full md:w-1/2 hover:brightness-50" src={imageUrl} alt={title} />
+        <div className="h-full p-14 flex flex-col">
+          <div className="flex gap-2 font-semibold ">
+            {label.map((item) => (
+              <div key={item} className={`w-fit p-2 border border-black shadow-solid-rb ${getRandomColor()} rounded-lg`}>
+                {item}
+              </div>
+            ))}
+          </div>
+
+          <h3 className="my-7 text-3xl font-bold font-bricolage">{title}</h3>
+          <p className="text-lg">{excerpt}</p>
+
+          <p className="mt-auto text-lg font-semibold">See More</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
