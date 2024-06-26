@@ -5,7 +5,7 @@ function Footer({ title }) {
   const thisYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-gray-900 shadow-md">
+    <footer className="bg-black">
       <div className="grid grid-cols-2 mx-auto md:grid-cols-3 md:w-3/4 xl:w-2/3 gap-4 p-6">
         <ul>
           <li>

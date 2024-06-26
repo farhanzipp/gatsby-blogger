@@ -1,13 +1,13 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { getImage } from 'gatsby-plugin-image';
-import CardItemSmall from './CardItemSmall';
+import BlogCard from './BlogCard';
 
 function Blogs({ blogProjects }) {
   return (
-    <div className="w-full px-5 pt-10 pb-32 sm:px-11 md:px-20 lg:px-32 xl:px-52 bg-white">
+    <div className="w-full px-5 pt-10 pb-32 sm:px-11 md:px-20 lg:px-28 xl:px-32 bg-white">
       <h2 className="text-4xl mb-14 md:text-5xl font-works font-semibold text-center">Blogs</h2>
-      <ul className="flex flex-col gap-4 md:w-3/4 mx-auto">
+      <ul className="flex gap-4 mx-auto">
         {blogProjects.slice(0, 3).map((post) => {
           const image = getImage(post.featuredImage);
           const { title, slug } = post;
@@ -15,7 +15,7 @@ function Blogs({ blogProjects }) {
           return (
             <li key={slug}>
               <Link to={slug}>
-                <CardItemSmall
+                <BlogCard
                   image={image}
                   title={title}
                   excerpt={excerpt}

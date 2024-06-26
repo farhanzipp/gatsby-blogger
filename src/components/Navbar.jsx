@@ -15,9 +15,9 @@ function Navbar({ title }) {
 
   return (
     <header className="fixed z-50 top-0 left-0 w-full">
-      <div className="w-full flex py-4 px-3 md:px-20  items-center justify-between mx-auto font-works bg-secondary">
+      <div className="w-full flex py-4 px-5 sm:px-11 md:px-20 lg:px-32 xl:px-52  items-center justify-between mx-auto font-works bg-secondary">
         <Link to="/">
-          <h1 className="text-xl font-bricolage font-bold ">
+          <h1 className="text-2xl font-bricolage font-bold ">
             {title}
           </h1>
         </Link>
@@ -28,7 +28,7 @@ function Navbar({ title }) {
               <li key={menu.id}>
                 <Link
                   to={menu.link}
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 hover:text-accentred md:p-0 "
+                  className="block py-2 pl-3 pr-4 text-xl text-gray-900 rounded md:border-0 hover:text-accentred md:p-0 "
                   activeClassName="active"
                 >
                   {menu.title}

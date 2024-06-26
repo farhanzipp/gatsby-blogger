@@ -3,7 +3,7 @@ import PROFILE from '../images/profile.svg';
 
 function Hero() {
   return (
-    <div className="w-full px-5 sm:px-11 md:px-20 lg:px-32 xl:px-52 flex flex-col gap-4 justify-center md:justify-between md:flex-row pb-20 bg-secondary">
+    <div className="w-full px-5 sm:px-11 md:px-20 lg:px-28 xl:px-32 flex flex-col gap-4 justify-center md:justify-between md:flex-row pb-20 bg-secondary">
       <div className="text-center md:text-left text-lg">
         <p>Hi, my name is</p>
         <h2 className="mt-3 mb-7 text-6xl xl:text-8xl font-bricolage font-black">
@@ -22,7 +22,7 @@ function Hero() {
           <button type="button" className="py-3 px-5 rounded-full -translate-x-1 -translate-y-1 border-2 border-black bg-primary font-works font-semibold hover:-translate-x-2 hover:-translate-y-2 duration-150">Download CV</button>
         </div>
       </div>
-      <img src={PROFILE} alt="profile" className="mx-auto md:right-0 w-3/4 md:w-2/4 lg:h-1/4 xl:w-1/4 bg-white rounded-full" />
+      <img src={PROFILE} alt="profile" className="mx-auto md:right-0 w-3/4 md:w-2/4 lg:h-1/4 xl:w-2/5 bg-white rounded-full" />
     </div>
   );
 }

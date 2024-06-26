@@ -19,9 +19,9 @@ function FeaturedProjectCard({
 }) {
   return (
     <Link to={slug} state={{ fromPortfolioPage: true }}>
-      <div className={`w-full gap-5 md:h-[60vh] flex flex-col md:flex-row flex-1 bg-secondary ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+      <div className={`w-full gap-5 md:gap-0 md:h-[60vh] flex flex-col md:flex-row flex-1 bg-secondary ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
         <img className="object-cover h-full md:w-1/2 hover:brightness-50 duration-150" src={imageUrl} alt={title} />
-        <div className="h-full p-14 flex flex-col">
+        <div className="h-full md:w-1/2 p-14 flex flex-col">
           <div className="flex gap-2 font-semibold ">
             {label.map((item) => (
               <div key={item} className={`w-fit p-2 border border-black shadow-solid-rb ${getRandomColor()} rounded-lg`}>
