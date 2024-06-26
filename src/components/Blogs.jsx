@@ -7,7 +7,7 @@ function Blogs({ blogProjects }) {
   return (
     <div className="w-full px-5 pt-10 pb-32 sm:px-11 md:px-20 lg:px-28 xl:px-32 bg-white">
       <h2 className="text-4xl mb-14 md:text-5xl font-works font-semibold text-center">Blogs</h2>
-      <ul className="flex gap-4 mx-auto">
+      <ul className="flex flex-col md:flex-row gap-4 mx-auto">
         {blogProjects.slice(0, 3).map((post) => {
           const image = getImage(post.featuredImage);
           const { title, slug } = post;

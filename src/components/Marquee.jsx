@@ -20,37 +20,41 @@ const marqueeIconsMobile = [
 
 function Marquee() {
   const marqueeElements = useRef([]);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0,
+  );
   const marqueeTween = useRef();
 
   useEffect(() => {
-    // Initial setup and cleanup for animation
-    resizeHandler();
-    window.addEventListener('resize', resizeHandler);
-    return () => {
-      window.removeEventListener('resize', resizeHandler);
-      marqueeTween.current && marqueeTween.current.pause().kill();
-    };
+    if (typeof window !== 'undefined') {
+      resizeHandler();
+      window.addEventListener('resize', resizeHandler);
+
+      return () => {
+        window.removeEventListener('resize', resizeHandler);
+        marqueeTween.current && marqueeTween.current.pause().kill();
+      };
+    }
   }, []);
 
   useEffect(() => {
-    // Effect to handle animation and initial position setup
-    marqueeInitialSet();
-    marqueeTween.current && marqueeTween.current.pause().kill();
-    marqueeTween.current = gsap.to(marqueeElements.current, {
-      x: `+=${screenWidth * 1.5}`,
-      ease: 'none',
-      repeat: -1,
-      duration: 20,
-      rotation: 0.1,
-      modifiers: {
-        x: (x) => `${parseFloat(x) % (screenWidth * 1.5)}px`,
-      },
-    });
+    if (typeof window !== 'undefined') {
+      marqueeInitialSet();
+      marqueeTween.current && marqueeTween.current.pause().kill();
+      marqueeTween.current = gsap.to(marqueeElements.current, {
+        x: `+=${screenWidth * 1.5}`,
+        ease: 'none',
+        repeat: -1,
+        duration: 20,
+        rotation: 0.1,
+        modifiers: {
+          x: (x) => `${parseFloat(x) % (screenWidth * 1.5)}px`,
+        },
+      });
+    }
   }, [screenWidth]);
 
   const marqueeInitialSet = () => {
-    // Set initial positions of marquee elements
     gsap.set(marqueeElements.current, {
       xPercent: -100,
       x(index) {
@@ -60,19 +64,16 @@ function Marquee() {
   };
 
   const resizeHandler = () => {
-    // Handle resize event to adjust screen width
     gsap.set(marqueeElements.current, { clearProps: 'all' });
     setScreenWidth(window.innerWidth);
   };
 
   const marqueeElementsRefHandler = (e, i) => {
-    // Handle setting refs for each marquee element
     marqueeElements.current[i] = e;
   };
 
   const renderMarqueeElements = () => {
-    // Render icons inside marquee elements
-    const iconsToRender = [...marqueeIconsMobile]; // Ensure enough icons to fill the marquee
+    const iconsToRender = [...marqueeIconsMobile];
     return iconsToRender.map((Icon, i) => (
       <div
         className="absolute px-5"
