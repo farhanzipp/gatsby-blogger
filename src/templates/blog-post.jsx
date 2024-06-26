@@ -31,7 +31,7 @@ function BlogPost({ data, location }) {
 
   return (
     <PageLayout>
-      <div className="container mx-auto p-5">
+      <div className="mt-24 mx-auto p-5">
         <Breadcrumb crumbs={crumbs} />
         <article>
           <h1 className="text-3xl font-bold blog-title">{post.title}</h1>
@@ -39,7 +39,7 @@ function BlogPost({ data, location }) {
             <img src={authorImg} alt={author} />
             <div className="px-4">
               <p className="">{author}</p>
-              <p className="mb-2 text-xs text-gray-200">
+              <p className="mb-2 text-xs ">
                 {readTime}
                 {' '}
                 min read    •

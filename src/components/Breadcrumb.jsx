@@ -4,7 +4,7 @@ import React from 'react';
 function Breadcrumb({ crumbs }) {
   return (
     <nav className="mb-5">
-      <ul className="inline-flex text-xs text-stone-400 dark:text-stone-200 italic">
+      <ul className="inline-flex text-xs italic">
         {crumbs.map((crumb, index) => (
           <li key={index}>
             {index === crumbs.length - 1 ? (

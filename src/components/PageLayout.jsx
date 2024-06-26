@@ -19,7 +19,7 @@ function PageLayout({ children }) {
   return (
     <div className='bg-secondary'>
       <Navbar title={siteTitle} />
-      <main className="pt-14">
+      <main className="pt-14 min-h-screen">
         {children}
       </main>
       <Footer title={siteTitle} />
