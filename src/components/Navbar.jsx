@@ -22,8 +22,8 @@ function Navbar({ title }) {
           </h1>
         </Link>
 
-        <nav className={`absolute w-full left-0 top-14 md:w-fit md:top-0 md:relative md:block ${isMenuOpen ? '' : 'hidden'}`} id="navbar-default">
-          <ul className="flex flex-col gap-4 p-4 md:p-0 border rounded-lg font-medium border-gray-100  bg-gray-50 md:flex-row md:border-0 md:bg-transparent">
+        <nav className={`absolute w-full left-0 top-20 md:w-fit md:top-0 md:relative md:block ${isMenuOpen ? '' : 'hidden'}`} id="navbar-default">
+          <ul className="mx-5 md:mx-0 shadow-solid-rb md:shadow-none flex flex-col gap-4 p-4 md:p-0 border-2 border-black rounded-lg font-medium bg-secondary md:flex-row md:border-0 md:bg-transparent">
             {menus.map((menu) => (
               <li key={menu.id}>
                 <Link

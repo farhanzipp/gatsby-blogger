@@ -3,39 +3,39 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
 import PageLayout from '../components/PageLayout';
-import CardItem from '../components/CardItem';
 import Seo from '../components/Seo';
+import ProjectCard from '../components/ProjectCard';
 
 function Project({ data }) {
   const posts = data.allBloggerPost.nodes;
 
   return (
     <PageLayout>
-      <h1 className="text-3xl font-bold mb-3 dark:text-gray-200">Projects</h1>
-
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => {
-          const image = getImage(post.featuredImage);
-          const { title, slug, published } = post;
-          const { excerpt } = post.childMarkdownRemark;
-          const author = data.site.siteMetadata.author.name;
-          const label = post.labels;
-          return (
-            <li key={slug}>
-              <Link to={`/${slug}`} state={{ fromPortfolioPage: true }}>
-                <CardItem
-                  image={image}
-                  title={title}
-                  label={label}
-                  excerpt={excerpt}
-                  author={author}
-                  published={published}
-                />
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="w-full px-5 pt-10 pb-32 sm:px-11 md:px-20 lg:px-32 xl:px-52">
+        <h2 className="text-4xl mb-10 md:text-5xl font-works font-semibold text-center">Projects</h2>
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => {
+            const image = getImage(post.featuredImage);
+            const { title, slug, published } = post;
+            const { excerpt } = post.childMarkdownRemark;
+            const author = data.site.siteMetadata.author.name;
+            // const label = post.labels;
+            return (
+              <li key={slug}>
+                <Link to={`/${slug}`} state={{ fromPortfolioPage: true }}>
+                  <ProjectCard
+                    image={image}
+                    title={title}
+                    excerpt={excerpt}
+                    author={author}
+                    published={published}
+                  />
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </PageLayout>
   );
 }

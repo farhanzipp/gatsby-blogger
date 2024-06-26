@@ -8,8 +8,8 @@ import { TbBrandVite } from 'react-icons/tb';
 import { SiMui, SiExpress, SiNetlify } from 'react-icons/si';
 
 const marqueeIcons = [
-  FaCss3Alt, FaHtml5, FaNode, FaBootstrap,
-  RiTailwindCssFill, RiJavascriptFill, RiGatsbyFill, TbBrandVite, TbBrandVite,
+  RiTailwindCssFill, RiJavascriptFill, RiGatsbyFill, TbBrandVite,
+  FaReact, FaCss3Alt, FaHtml5,
 ];
 
 const marqueeIconsMobile = [
@@ -24,6 +24,37 @@ function Marquee() {
     typeof window !== 'undefined' ? window.innerWidth : 0,
   );
   const marqueeTween = useRef();
+
+  const resizeHandler = () => {
+    gsap.set(marqueeElements.current, { clearProps: 'all' });
+    setScreenWidth(window.innerWidth);
+  };
+
+  const marqueeElementsRefHandler = (e, i) => {
+    marqueeElements.current[i] = e;
+  };
+
+  const renderMarqueeElements = () => {
+    const iconsToRender = [...marqueeIcons];
+    return iconsToRender.map((Icon, i) => (
+      <div
+        className="absolute"
+        key={`marquee-${i}`}
+        ref={(el) => marqueeElementsRefHandler(el, i)}
+      >
+        <Icon size={48} key={i} />
+      </div>
+    ));
+  };
+
+  const marqueeInitialSet = () => {
+    gsap.set(marqueeElements.current, {
+      xPercent: -100,
+      x(index) {
+        return (screenWidth / marqueeIcons.length) * index;
+      },
+    });
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -48,42 +79,11 @@ function Marquee() {
         duration: 20,
         rotation: 0.1,
         modifiers: {
-          x: (x) => `${parseFloat(x) % (screenWidth * 1.5)}px`,
+          x: (x) => `${parseFloat(x) % (screenWidth * 1.1)}px`,
         },
       });
     }
   }, [screenWidth]);
-
-  const marqueeInitialSet = () => {
-    gsap.set(marqueeElements.current, {
-      xPercent: -100,
-      x(index) {
-        return (screenWidth / marqueeIcons.length) * index;
-      },
-    });
-  };
-
-  const resizeHandler = () => {
-    gsap.set(marqueeElements.current, { clearProps: 'all' });
-    setScreenWidth(window.innerWidth);
-  };
-
-  const marqueeElementsRefHandler = (e, i) => {
-    marqueeElements.current[i] = e;
-  };
-
-  const renderMarqueeElements = () => {
-    const iconsToRender = [...marqueeIconsMobile];
-    return iconsToRender.map((Icon, i) => (
-      <div
-        className="absolute px-5"
-        key={`marquee-${i}`}
-        ref={(el) => marqueeElementsRefHandler(el, i)}
-      >
-        <Icon size={48} key={i} />
-      </div>
-    ));
-  };
 
   return (
     <div className="absolute w-full left-0">

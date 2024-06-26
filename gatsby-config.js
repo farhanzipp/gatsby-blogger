@@ -12,7 +12,7 @@ module.exports = {
     title: '🍉farhanzip',
     author: {
       name: 'Farhan Aji',
-      summary: 'a person who love build fancy techy stuff.',
+      summary: 'a person who love build fancy stuff.',
     },
     description: 'Farhan\'s portofolio website.',
     siteUrl: 'https://farhanzip.netlify.app/',
