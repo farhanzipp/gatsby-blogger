@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import parse from 'html-react-parser';
 import PageLayout from '../components/PageLayout';
 import Seo from '../components/Seo';
 import Breadcrumb from '../components/Breadcrumb';
@@ -31,29 +32,23 @@ function BlogPost({ data, location }) {
 
   return (
     <PageLayout>
-      <div className="w-full bg-white">
-        <div className="w-1/2 mx-auto">
-          <Breadcrumb crumbs={crumbs} />
-          <article>
-            <h1 className="text-3xl font-bold blog-title">{post.title}</h1>
+      <div className="bg-white">
+        <div id="blog-layout">
+          <div>
+            <Breadcrumb crumbs={crumbs} />
+            <h1 className="text-3xl font-bold font-works">{post.title}</h1>
             <div className="flex py-2">
-              <img src={authorImg} alt={author} className="w-10 h-10 rounded-full" />
+              <img src={authorImg} alt={author} style={{ height: '3rem', borderRadius: '100%' }} />
               <div className="px-4">
                 <p className="">{author}</p>
                 <p className="mb-2 text-xs">
-                  {readTime}
-                  {' '}
-                  min read •
-                  <span>{published}</span>
+                  {published}
                 </p>
               </div>
             </div>
-            <div className="w-2/3">
-              <div
-                dangerouslySetInnerHTML={{ __html: post.content }}
-                className="blog-post"
-              />
-            </div>
+          </div>
+          <article>
+            {parse(post.content)}
           </article>
         </div>
       </div>
