@@ -15,8 +15,25 @@
     margin: 0 auto;
 }
 
-.blog-title {
-    font-family: "Lato", sans-serif;
+.portfolio-url {
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.portfolio-url a {
+    width: 30%;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: #F7CB46;
+    font-weight: bold;
+    transition-duration: 1s;
+}
+
+.portfolio-url a:hover {
+    background-color: black;
+    color:white;
 }
 
 .blog-post {

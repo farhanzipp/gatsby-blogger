@@ -6,6 +6,10 @@ import PageLayout from '../components/PageLayout';
 import Seo from '../components/Seo';
 import ProjectCard from '../components/ProjectCard';
 
+function removeVisitWebsite(text) {
+  return text.replace('VISIT WEBSITE', '').trim();
+}
+
 function Project({ data }) {
   const posts = data.allBloggerPost.nodes;
 
@@ -26,7 +30,7 @@ function Project({ data }) {
                   <ProjectCard
                     image={image}
                     title={title}
-                    excerpt={excerpt}
+                    excerpt={removeVisitWebsite(excerpt)}
                     author={author}
                     published={published}
                   />

@@ -1,6 +1,10 @@
 import React from 'react';
 import FeaturedProjectCard from './FeaturedProjectCard';
 
+function removeVisitWebsite(text) {
+  return text.replace('VISIT WEBSITE', '').trim();
+}
+
 function Projects({ featProjects }) {
   return (
     <div className="w-full py-14 bg-white">
@@ -10,6 +14,7 @@ function Projects({ featProjects }) {
           const imageUrl = post.childMarkdownRemark.frontmatter.featuredImageUrl;
           const { title, slug } = post;
           const { excerpt } = post.childMarkdownRemark;
+
           const label = post.labels;
           return (
             <li key={slug}>
@@ -17,7 +22,7 @@ function Projects({ featProjects }) {
                 imageUrl={imageUrl}
                 title={title}
                 label={label}
-                excerpt={excerpt}
+                excerpt={removeVisitWebsite(excerpt)}
                 slug={slug}
                 index={index}
               />
